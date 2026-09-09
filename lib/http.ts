@@ -72,7 +72,41 @@ export function handleError(error: unknown): NextResponse {
 
 export function assertSameOrigin(request: Request): void {
   const origin = request.headers.get('origin');
-  if (origin && origin !== new URL(request.url).origin)
+  if (!origin) return;
+
+  let source: URL;
+  try {
+    source = new URL(origin);
+  } catch {
+    throw new ApiError(403, 'Solicitud de origen no permitido.');
+  }
+
+  if (!['http:', 'https:'].includes(source.protocol) || source.username || source.password)
+    throw new ApiError(403, 'Solicitud de origen no permitido.');
+
+  const requestUrl = new URL(request.url);
+  const forwardedProtocol = request.headers.get('x-forwarded-proto')?.split(',')[0]?.trim();
+  const protocol =
+    forwardedProtocol === 'http' || forwardedProtocol === 'https'
+      ? `${forwardedProtocol}:`
+      : source.protocol;
+  const hosts = [
+    requestUrl.host,
+    request.headers.get('host'),
+    request.headers.get('x-forwarded-host')?.split(',')[0]?.trim(),
+  ].filter((host): host is string => Boolean(host));
+  const allowedOrigins = new Set(hosts.map((host) => `${protocol}//${host.toLowerCase()}`));
+
+  const configuredUrl = process.env.APP_URL?.trim();
+  if (configuredUrl) {
+    try {
+      allowedOrigins.add(new URL(configuredUrl).origin.toLowerCase());
+    } catch {
+      console.error('[Integra Cash] APP_URL no es una URL válida.');
+    }
+  }
+
+  if (!allowedOrigins.has(source.origin.toLowerCase()))
     throw new ApiError(403, 'Solicitud de origen no permitido.');
 }
 
