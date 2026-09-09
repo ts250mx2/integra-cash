@@ -1,0 +1,445 @@
+.print-page {
+  min-height: 100vh;
+  padding: 28px 24px 56px;
+  background: #f0f2f1;
+  color: #202e2a;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.print-page * {
+  box-sizing: border-box;
+}
+.print-toolbar {
+  max-width: 816px;
+  margin: 0 auto 22px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.print-back,
+.print-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.print-back {
+  color: #426156;
+}
+.print-action {
+  margin-left: auto;
+  border: 0;
+  border-radius: 9px;
+  padding: 12px 17px;
+  background: #125843;
+  color: #fff;
+  cursor: pointer;
+}
+.print-action:hover {
+  background: #0d4232;
+}
+.print-back:focus-visible,
+.print-action:focus-visible {
+  outline: 3px solid #93c9ae;
+  outline-offset: 4px;
+}
+.print-back svg,
+.print-action svg {
+  height: 18px;
+  width: 18px;
+}
+.print-toolbar-hint {
+  margin-left: auto;
+  color: #7b8983;
+  font-size: 11px;
+}
+.print-sheet {
+  max-width: 816px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 44px 48px;
+  box-shadow: 0 8px 38px #20352b0d;
+  border: 1px solid #e1e7e3;
+}
+.print-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 28px;
+  padding-bottom: 25px;
+  border-bottom: 2px solid #174d3c;
+}
+.print-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  max-width: 430px;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  color: #153f32;
+  overflow-wrap: anywhere;
+}
+.print-brand-mark {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  height: 36px;
+  width: 36px;
+  background: #153f32;
+  color: #fff;
+  font-size: 24px;
+  letter-spacing: -2px;
+  border-radius: 9px;
+}
+.print-tagline {
+  color: #7c8881;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 9px 0 0 47px;
+}
+.print-header-meta {
+  text-align: right;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #6d7b73;
+}
+.print-header-meta strong {
+  display: block;
+  color: #203e31;
+  font-size: 13px;
+}
+.print-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 30px 0 24px;
+}
+.print-eyebrow {
+  color: #6e8377;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  margin: 0 0 8px;
+}
+.print-heading h1 {
+  font-size: 24px;
+  letter-spacing: -0.7px;
+  line-height: 1.15;
+  font-weight: 700;
+  margin: 0;
+  color: #22372b;
+}
+.print-folio {
+  text-align: right;
+  font-size: 18px;
+  font-weight: 700;
+  color: #174d3c;
+  letter-spacing: 0.4px;
+}
+.print-folio small {
+  display: block;
+  font-weight: 400;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  color: #7a897f;
+  margin: 0 0 8px;
+}
+.print-section {
+  margin-top: 23px;
+  break-inside: avoid;
+}
+.print-section-flow {
+  break-inside: auto;
+}
+.print-section-title {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #45634f;
+  margin: 0 0 14px;
+  padding: 0 0 8px;
+  border-bottom: 1px solid #e0e7e1;
+}
+.print-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 28px;
+}
+.print-grid-three {
+  grid-template-columns: repeat(3, 1fr);
+}
+.print-field dt {
+  font-size: 9px;
+  font-weight: 400;
+  color: #7d8780;
+  margin-bottom: 5px;
+}
+.print-field dd {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.45;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.print-field-wide dd {
+  white-space: pre-wrap;
+}
+.print-field {
+  margin: 0;
+}
+.print-field-wide {
+  grid-column: 1 / -1;
+}
+.print-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  padding: 21px;
+  background: #f3f7f4;
+  border: 1px solid #dfebe2;
+  border-radius: 7px;
+  margin-top: 24px;
+  break-inside: avoid;
+}
+.print-summary .print-field dd {
+  font-size: 21px;
+  letter-spacing: -0.5px;
+  color: #174d3c;
+}
+.print-summary .print-field dt {
+  color: #61806b;
+  font-size: 10px;
+}
+.print-summary .print-field small {
+  display: block;
+  font-size: 9px;
+  font-weight: 400;
+  color: #839087;
+  margin-top: 5px;
+  line-height: 1.4;
+  letter-spacing: normal;
+}
+.print-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 10px;
+  text-align: left;
+}
+.print-table th {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  font-weight: 600;
+  color: #75857a;
+  padding: 9px 8px;
+  background: #f5f7f5;
+}
+.print-table td {
+  vertical-align: top;
+  padding: 10px 8px;
+  border-bottom: 1px solid #e8ece8;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.print-table th:first-child,
+.print-table td:first-child {
+  padding-left: 0;
+}
+.print-table th:last-child,
+.print-table td:last-child {
+  padding-right: 0;
+}
+.print-table .print-numeric {
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.print-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #174d3c;
+}
+.print-total strong {
+  font-size: 20px;
+}
+.print-note {
+  font-size: 10px;
+  line-height: 1.65;
+  color: #79867e;
+  margin: 12px 0 0;
+}
+.print-notice {
+  border-left: 3px solid #b6cdbf;
+  padding: 11px 14px;
+  font-size: 10px;
+  line-height: 1.6;
+  color: #6d7e73;
+  background: #f7f9f7;
+  margin: 23px 0 0;
+}
+.print-signatures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 68px;
+  margin-top: 58px;
+  text-align: center;
+  break-inside: avoid;
+}
+.print-signature {
+  border-top: 1px solid #889b8d;
+  padding-top: 9px;
+  font-size: 10px;
+  line-height: 1.6;
+}
+.print-signature small {
+  display: block;
+  color: #89948c;
+  font-size: 9px;
+}
+.print-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  border-top: 1px solid #e0e7e1;
+  margin-top: 27px;
+  padding-top: 13px;
+  font-size: 8px;
+  color: #91a096;
+  line-height: 1.5;
+}
+.print-status {
+  display: inline-block;
+  background: #edf4ef;
+  color: #366a49;
+  border-radius: 4px;
+  font-size: 10px;
+  padding: 4px 8px;
+  text-transform: capitalize;
+}
+.print-empty {
+  padding: 22px 0;
+  text-align: center;
+  color: #809086;
+}
+@media (max-width: 650px) {
+  .print-page {
+    padding: 16px 10px 30px;
+  }
+  .print-toolbar {
+    gap: 12px;
+  }
+  .print-toolbar-hint {
+    display: none;
+  }
+  .print-action {
+    font-size: 11px;
+    padding: 11px 12px;
+  }
+  .print-sheet {
+    padding: 26px 22px;
+  }
+  .print-brand {
+    font-size: 22px;
+  }
+  .print-header {
+    gap: 14px;
+  }
+  .print-tagline {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+  .print-header-meta {
+    font-size: 9px;
+  }
+  .print-header-meta strong {
+    font-size: 11px;
+  }
+  .print-heading h1 {
+    font-size: 21px;
+  }
+  .print-folio {
+    font-size: 14px;
+  }
+  .print-summary {
+    gap: 12px;
+    padding: 15px;
+  }
+  .print-summary .print-field dd {
+    font-size: 17px;
+  }
+  .print-grid {
+    gap: 14px;
+  }
+  .print-grid-three {
+    grid-template-columns: 1fr 1fr;
+  }
+  .print-signatures {
+    gap: 35px;
+  }
+  .print-table {
+    font-size: 9px;
+  }
+}
+@page {
+  size: letter;
+  margin: 14mm 13mm;
+}
+@media print {
+  html,
+  body {
+    background: #fff !important;
+    height: auto !important;
+    margin: 0 !important;
+  }
+  .print-page {
+    min-height: 0;
+    padding: 0;
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .print-toolbar {
+    display: none !important;
+  }
+  .print-sheet {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+  }
+  .print-heading {
+    margin-top: 24px;
+  }
+  .print-section {
+    margin-top: 18px;
+  }
+  .print-table thead {
+    display: table-header-group;
+  }
+  .print-table tr {
+    break-inside: avoid;
+  }
+  .print-signatures {
+    margin-top: 45px;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}

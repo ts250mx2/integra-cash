@@ -1,0 +1,31 @@
+{
+  "name": "integra-cash",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3051",
+    "build": "next build",
+    "start": "next start -p 3052",
+    "lint": "eslint .",
+    "db:setup": "tsx --env-file=.env.local scripts/setup-db.ts",
+    "test": "tsx --test tests/*.test.ts"
+  },
+  "dependencies": {
+    "lucide-react": "^1.14.0",
+    "mysql2": "^3.22.3",
+    "next": "16.2.4",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.4",
+    "prettier": "^3.9.6",
+    "tsx": "^4.21.0",
+    "typescript": "^5"
+  }
+}
