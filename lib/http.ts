@@ -74,6 +74,12 @@ export function assertSameOrigin(request: Request): void {
   const origin = request.headers.get('origin');
   if (!origin) return;
 
+  // Browsers calculate this header before a reverse proxy rewrites the request URL.
+  // It cannot be set by page JavaScript, so it is a reliable signal for our own UI.
+  const fetchSite = request.headers.get('sec-fetch-site')?.toLowerCase();
+  if (fetchSite === 'same-origin') return;
+  if (fetchSite === 'cross-site') throw new ApiError(403, 'Solicitud de origen no permitido.');
+
   let source: URL;
   try {
     source = new URL(origin);
